@@ -1,0 +1,107 @@
+{
+  "dry_run": true,
+  "dry_run_wallet": 1000,
+  "stake_currency": "USDT",
+  "stake_amount": "unlimited",
+  "tradable_balance_ratio": 0.99,
+  "max_open_trades": 2,
+  "timeframe": "15m",
+  "trading_mode": "spot",
+  "strategy_path": "user_data/strategies/checkpoints/trend_following",
+  "user_data_dir": "user_data",
+  "dataformat_ohlcv": "feather",
+  "fee": 0.0007,
+  "backtest_cache": "none",
+  "exchange": {
+    "name": "binanceus",
+    "key": "",
+    "secret": "",
+    "pair_whitelist": [
+      "BTC/USDT",
+      "ETH/USDT"
+    ],
+    "pair_blacklist": []
+  },
+  "pairlists": [
+    {
+      "method": "StaticPairList"
+    }
+  ],
+  "entry_pricing": {
+    "price_side": "other",
+    "use_order_book": false,
+    "price_last_balance": 0.0
+  },
+  "exit_pricing": {
+    "price_side": "other",
+    "use_order_book": false
+  },
+  "order_types": {
+    "entry": "market",
+    "exit": "market",
+    "stoploss": "market",
+    "stoploss_on_exchange": false,
+    "emergency_exit": "market"
+  },
+  "order_time_in_force": {
+    "entry": "GTC",
+    "exit": "GTC"
+  },
+  "custom": {
+    "volatility_research": {
+      "adverse_cost": 0.0,
+      "engine": "breakout",
+      "lookback": 384,
+      "trail_atr": 10.0,
+      "time_exit_hours": 72,
+      "enable_weekly_trend": true,
+      "max_hour_participation": null,
+      "quality_exclusions": [
+        {
+          "start_utc": "2020-04-28T03:00:00+00:00",
+          "end_exclusive": "2020-04-28T12:00:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar."
+        },
+        {
+          "start_utc": "2020-07-09T02:00:00+00:00",
+          "end_exclusive": "2020-07-09T12:00:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar."
+        },
+        {
+          "start_utc": "2020-08-07T16:00:00+00:00",
+          "end_exclusive": "2020-08-07T22:30:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar. The preceding native bar closed before its nominal interval end."
+        },
+        {
+          "start_utc": "2021-01-11T06:00:00+00:00",
+          "end_exclusive": "2021-01-11T09:30:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar."
+        },
+        {
+          "start_utc": "2021-06-22T02:00:00+00:00",
+          "end_exclusive": "2021-06-22T09:45:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar."
+        },
+        {
+          "start_utc": "2022-02-21T16:15:00+00:00",
+          "end_exclusive": "2022-02-21T17:00:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar. The preceding native bar closed before its nominal interval end."
+        },
+        {
+          "start_utc": "2023-02-06T04:45:00+00:00",
+          "end_exclusive": "2023-02-06T12:15:00+00:00",
+          "reason": "Binance.US execution-data gap and adjacent boundary quarantine through the first fully reliable 15m bar. The preceding native candle required an actual-aggTrades correction."
+        }
+      ],
+      "gross_cap": 0.95,
+      "notional_cap": 0.95,
+      "risk_per_trade": 0.02,
+      "exit_lookback": 12,
+      "stop_atr": 2.5,
+      "enable_drawdown_guard": false,
+      "enable_downside_scale": false
+    }
+  },
+  "timeframe_detail": "5m",
+  "export": "trades"
+}

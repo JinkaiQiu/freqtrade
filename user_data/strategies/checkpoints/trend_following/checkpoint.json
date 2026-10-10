@@ -1,0 +1,62 @@
+{
+  "strategies": [
+    "FourHourDailyExit",
+    "DailyTurtle55"
+  ],
+  "scope": "Frozen research checkpoint, not a live promotion or new performance evaluation.",
+  "source_files": {
+    "FourHourDailyExit.py": {
+      "sha256": "0d1268b7c4eaf746c90cd3efc166fb08fc293360083cd7e1f85d269d3aa37d04",
+      "frozen_source": "user_data/backtest_results/consistency_series_v7_20261010/turtle/source/FourHourDailyExit.py"
+    },
+    "HorizonTrend.py": {
+      "sha256": "3404d5cc8469c9dfaa79837429fafb33876e5d02ab3aef85fb1cad81587a55e6",
+      "frozen_source": "user_data/backtest_results/consistency_series_v7_20261010/turtle/source/HorizonTrend.py"
+    },
+    "DailyTrend.py": {
+      "sha256": "2fc6bbe96573f048390e8ee63a1cc953151d0fe2cdb96eaee56f97588907b4a5",
+      "frozen_source": "user_data/backtest_results/consistency_series_v7_20261010/turtle/source/DailyTrend.py"
+    },
+    "FrozenGuardRemoved.py": {
+      "sha256": "96599d1b3b39da3826d085523b79651d0191de0c9f43c9b4d173e2e35bde58be",
+      "frozen_source": "user_data/backtest_results/consistency_series_v7_20261010/turtle/source/FrozenGuardRemoved.py"
+    }
+  },
+  "configuration": {
+    "file": "backtest.json",
+    "sha256": "98b6611eb19d9c668d85f48c5838cfa288f1a81504aa73b5316693cea81976d8",
+    "frozen_reference": "user_data/backtest_results/consistency_series_v7_20261010/turtle/configs/development_1000.json",
+    "reference_sha256": "b02a47c980d80a77bd0f0ed6f50e0ffbe4f72ff43ea60e394e32169aae48860d",
+    "changes": [
+      "Remove default strategy; pass explicit --strategy or --strategy-list.",
+      "Make strategy_path and user_data_dir relative to repository root."
+    ],
+    "custom_block_preserved_exactly": true
+  },
+  "native_engine_commit": "1f394eaebc2f46a83d26971388628707802f8602",
+  "protocol": {
+    "exchange": "binanceus",
+    "mode": "spot",
+    "pairs": [
+      "BTC/USDT",
+      "ETH/USDT"
+    ],
+    "wallet_usdt": 1000,
+    "decision_timeframe": "15m",
+    "execution_detail": "5m",
+    "fee_bp_per_fill": 7,
+    "planned_risk_per_trade": 0.02,
+    "combined_planned_risk": 0.04,
+    "gross_notional_caps": 0.95,
+    "development": "20230101-20250701",
+    "validation": "20250701-20260101",
+    "reserved_test_policy": "No tuning on reserved2026 periods. Previously inspected test results do not create a fresh untouched holdout."
+  },
+  "native_backtest_command_template": "python -m freqtrade backtesting -c user_data/strategies/checkpoints/trend_following/backtest.json --strategy-list FourHourDailyExit DailyTurtle55 --datadir <verified-phase-data-directory> --timerange <frozen-phase-timerange> --timeframe-detail 5m --fee 0.0007 --cache none",
+  "checkpoint_files_exclude": [
+    "Exchange credentials",
+    "Market data",
+    "Backtest archives",
+    "Temporary audit scripts"
+  ]
+}
